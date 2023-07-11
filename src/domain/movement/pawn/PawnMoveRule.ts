@@ -1,5 +1,6 @@
 import {Coordinate} from "../../../data/model/Coordinate";
 import {MoveContext} from "../../../data/model/MoveContext";
+import {PawnChessPiece} from "../../../data/model/piece/PawnChessPiece";
 
 export class PawnMoveVectors {
     constructor(
@@ -13,8 +14,7 @@ export class PawnMoveVectors {
 export interface PawnMoveRule {
 
     possibleMoves(
-        pos: Coordinate,
-        context: MoveContext,
+        piece: PawnChessPiece,
         vectors: PawnMoveVectors
     ): Array<Coordinate>
 

@@ -2,9 +2,11 @@ import {PossibleMoveProvider} from "../PossibleMoveProvider";
 import {Coordinate} from "../../data/model/Coordinate";
 import {MovementStrategy} from "../MovementStrategy";
 import {QueenPossibleMoveProvider} from "./QueenPossibleMoveProvider";
+import {KingChessPiece} from "../../data/model/piece/KingChessPiece";
+import {KnightChessPiece} from "../../data/model/piece/KnightChessPiece";
 
 // Horsie
-export class KingPossibleMoveProvider implements PossibleMoveProvider {
+export class KingPossibleMoveProvider implements PossibleMoveProvider<KingChessPiece> {
 
     private readonly vectors = [
         new Coordinate(-1, -2, +3),
@@ -21,8 +23,8 @@ export class KingPossibleMoveProvider implements PossibleMoveProvider {
         new Coordinate(-2, -1, +3),
     ]
 
-    possibleMoves(pos: Coordinate): Array<Coordinate> {
-        return MovementStrategy.transform(pos, this.vectors);
+    possibleMoves(piece: KnightChessPiece): Array<Coordinate> {
+        return MovementStrategy.transform(piece.coordinate, this.vectors);
     }
 
 }

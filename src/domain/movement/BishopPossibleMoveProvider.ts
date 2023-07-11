@@ -1,8 +1,9 @@
 import {PossibleMoveProvider} from "../PossibleMoveProvider";
 import {Coordinate} from "../../data/model/Coordinate";
 import {MovementStrategy} from "../MovementStrategy";
+import {BishopChessPiece} from "../../data/model/piece/BishopChessPiece";
 
-export class BishopPossibleMoveProvider implements PossibleMoveProvider {
+export class BishopPossibleMoveProvider implements PossibleMoveProvider<BishopChessPiece> {
 
     private readonly vectors = [
         new Coordinate(+1, -2, +1),
@@ -13,8 +14,8 @@ export class BishopPossibleMoveProvider implements PossibleMoveProvider {
         new Coordinate(-1, -1, +2),
     ];
 
-    possibleMoves(pos: Coordinate): Array<Coordinate> {
-        return MovementStrategy.extrapolate(pos, this.vectors);
+    possibleMoves(piece: BishopChessPiece): Array<Coordinate> {
+        return MovementStrategy.extrapolate(piece.coordinate, this.vectors);
     }
 
 }

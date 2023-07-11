@@ -1,20 +1,18 @@
 import {PossibleMoveProvider} from "../../PossibleMoveProvider";
 import {Coordinate} from "../../../data/model/Coordinate";
 import {PawnMoveRule, PawnMoveVectors} from "./PawnMoveRule";
-import {MoveContext} from "../../../data/model/MoveContext";
 import {CapturePawnMoveRule} from "./CapturePawnMoveRule";
 import {DoubleSquarePawnMoveRule} from "./DoubleSquarePawnMoveRule";
 import {SingleSquarePawnMoveRule} from "./SingleSquarePawnMoveRule";
 import {Side} from "../../../data/model/Side";
-import {EnPassantPawnMoveRule} from "./EnPassantPawnMoveRule";
+import {PawnChessPiece} from "../../../data/model/piece/PawnChessPiece";
 
-export class PawnPossibleMoveProvider implements PossibleMoveProvider {
+export class PawnPossibleMoveProvider implements PossibleMoveProvider<PawnChessPiece> {
 
     constructor(readonly rules: Array<PawnMoveRule> = [
         new CapturePawnMoveRule(),
         new DoubleSquarePawnMoveRule(),
-        new SingleSquarePawnMoveRule(),
-        new EnPassantPawnMoveRule()
+        new SingleSquarePawnMoveRule()
     ]) {}
 
     public readonly white = new PawnMoveVectors(
@@ -30,15 +28,14 @@ export class PawnPossibleMoveProvider implements PossibleMoveProvider {
         this.white.right.reverseFacing(),
     )
 
-    possibleMoves(pos: Coordinate, context: MoveContext): Array<Coordinate> {
+    possibleMoves(piece: PawnChessPiece): Array<Coordinate> {
         const options: Array<Coordinate> = []
 
         this.rules.forEach(r => {
             options.push(
                 ...r.possibleMoves(
-                    pos,
-                    context,
-                    context.piece.side === Side.WHITE ? this.white : this.black
+                    piece,
+                    piece.side === Side.WHITE ? this.white : this.black
                 )
             )
         })

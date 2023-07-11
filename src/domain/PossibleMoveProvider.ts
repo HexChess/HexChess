@@ -1,8 +1,9 @@
 import {Coordinate} from "../data/model/Coordinate";
 import {MoveContext} from "../data/model/MoveContext";
+import {ChessPiece} from "../data/model/ChessPiece";
 
-export interface PossibleMoveProvider {
+export interface PossibleMoveProvider<T extends ChessPiece> {
 
-    possibleMoves(pos: Coordinate, context: MoveContext): Array<Coordinate>
+    possibleMoves(piece: T): Array<Coordinate>
 
 }
