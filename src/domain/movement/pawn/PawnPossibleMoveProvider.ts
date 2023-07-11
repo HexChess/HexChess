@@ -9,12 +9,6 @@ import {PawnChessPiece} from "../../../data/model/piece/PawnChessPiece";
 
 export class PawnPossibleMoveProvider implements PossibleMoveProvider<PawnChessPiece> {
 
-    constructor(readonly rules: Array<PawnMoveRule> = [
-        new CapturePawnMoveRule(),
-        new DoubleSquarePawnMoveRule(),
-        new SingleSquarePawnMoveRule()
-    ]) {}
-
     public readonly white = new PawnMoveVectors(
         new Coordinate(0, +1, -1),
         new Coordinate(0, +2, -2),
@@ -27,6 +21,12 @@ export class PawnPossibleMoveProvider implements PossibleMoveProvider<PawnChessP
         this.white.left.reverseFacing(),
         this.white.right.reverseFacing(),
     )
+
+    constructor(readonly rules: Array<PawnMoveRule> = [
+        new CapturePawnMoveRule(),
+        new DoubleSquarePawnMoveRule(),
+        new SingleSquarePawnMoveRule()
+    ]) {}
 
     possibleMoves(piece: PawnChessPiece): Array<Coordinate> {
         const options: Array<Coordinate> = []

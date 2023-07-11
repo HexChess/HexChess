@@ -1,5 +1,4 @@
 import {Coordinate} from "../../../data/model/Coordinate";
-import {MoveContext} from "../../../data/model/MoveContext";
 import {PawnChessPiece} from "../../../data/model/piece/PawnChessPiece";
 
 export class PawnMoveVectors {
