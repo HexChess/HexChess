@@ -32,12 +32,26 @@ export class Board {
         }
     }
 
-    getPiece(coordinate: Coordinate) {
-
+    private cubeToGridCoordinate(coordinate: Coordinate) : [number, number] {
+        return [coordinate.r + 5, coordinate.q + 5]
     }
 
-    setPiece(coordinatie: Coordinate, piece: BoardItem) {
+    getPiece(coordinate: Coordinate) : BoardItem {
 
+        let gridCoord : [number, number] = this.cubeToGridCoordinate(coordinate)
+        let y = gridCoord[0]
+        let x = gridCoord[1]
+
+        return <BoardItem> this.grid[y][x]
+    }
+
+    setPiece(coordinate: Coordinate, piece: BoardItem) {
+
+        let gridCoord : [number, number] = this.cubeToGridCoordinate(coordinate)
+        let y = gridCoord[0]
+        let x = gridCoord[1]
+
+        this.grid[y][x] = piece
     }
 
     printGrid() {
