@@ -50,7 +50,10 @@ export class Board {
                 if (this.grid[row][column] instanceof ChessPiece) {
                     console.log((<ChessPiece>this.grid[row][column]).pieceIcon)
                 }
-                
+
+                if (this.grid[row][column] instanceof Empty) {
+                    console.log("⬡")
+                }
             }
         }
     }
