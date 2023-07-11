@@ -7,4 +7,8 @@ export class QueenChessPiece implements ChessPiece {
         public coordinate: Coordinate,
         public side: Side,
     ) {}
+
+    pieceIcon(): String {
+        return "♕";
+    }
 }

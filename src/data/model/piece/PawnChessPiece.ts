@@ -8,4 +8,8 @@ export class PawnChessPiece implements ChessPiece {
         public side: Side,
         public hasMoved: boolean
     ) {}
+
+    pieceIcon(): String {
+        return "♙";
+    }
 }

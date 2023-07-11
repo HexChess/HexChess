@@ -7,4 +7,8 @@ export class RookChessPiece implements ChessPiece {
         public coordinate: Coordinate,
         public side: Side,
     ) {}
+
+    pieceIcon(): String {
+        return "♖";
+    }
 }

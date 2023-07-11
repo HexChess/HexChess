@@ -1,9 +1,12 @@
 import {Coordinate} from "./Coordinate";
 import {Side} from "./Side";
 
-export interface ChessPiece {
+export abstract class ChessPiece {
 
-    coordinate: Coordinate
-    side: Side
+    abstract coordinate: Coordinate
+    abstract side: Side
+
+
+    abstract pieceIcon(): String
 
 }
