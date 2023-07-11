@@ -35,7 +35,7 @@ export class PawnPossibleMoveProvider implements PossibleMoveProvider {
             }
         })
 
-        return options
+        return options.filter(c => !MovementStrategy.isOOB(c))
     }
 
 }
