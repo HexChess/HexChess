@@ -2,7 +2,7 @@ import {ChessPiece} from "./ChessPiece";
 
 export class Board {
 
-    grid : ChessPiece[][];
+    grid: ChessPiece[][];
 
     constructor() {
 
@@ -13,3 +13,4 @@ export class Board {
         }
     }
 
+}
