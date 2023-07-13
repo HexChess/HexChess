@@ -18,8 +18,8 @@ export class PawnPossibleMoveProvider implements PossibleMoveProvider<PawnChessP
     public readonly black = new PawnMoveVectors(
         this.white.forward.reverseFacing(),
         this.white.double.reverseFacing(),
-        this.white.left.reverseFacing(),
         this.white.right.reverseFacing(),
+        this.white.left.reverseFacing(),
     )
 
     constructor(readonly rules: Array<PawnMoveRule> = [
